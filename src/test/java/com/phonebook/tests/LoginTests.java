@@ -7,19 +7,19 @@ import org.testng.annotations.Test;
 public class LoginTests extends TestBase{
     @Test
     public void loginPositiveTests(){
-        //click on Login link
-        click(By.cssSelector("[href='/login']"));
-        //enter email
-        type(By.name("email"), "Ol_N@gmail.com");
-        //enter password
-        type(By.name("password"), "Ol_111111!");
-        //click on Login button
-        click(By.name("login"));
-        //verify SingOut button is displayed
+        clickOnLoginLink();
+        fillregisterloginform(new User().setMail("ol_n@gmail.com").setPassword("Ol_111111!"));
+        clickOnLoginButton();
         Assert.assertTrue(isElementPresent(By.xpath("//button[.='Sign Out']")));
 
-
-
+    }
+    @Test
+    public void loginNegativeWithoutEmailTests(){
+        clickOnLoginLink();
+        fillregisterloginform(new User().setPassword("Ol_111111!"));
+        clickOnLoginButton();
+        Assert.assertTrue(isAlertDisplayed());
 
     }
+
 }
