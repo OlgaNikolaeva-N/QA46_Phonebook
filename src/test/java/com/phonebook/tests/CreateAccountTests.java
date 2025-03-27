@@ -1,31 +1,36 @@
 package com.phonebook.tests;
 
+import com.phonebook.models.User;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 public class CreateAccountTests extends TestBase {
+    SoftAssert softAssert = new SoftAssert();
 
 
     @Test(enabled = false)
     public void newUserRegistrationPositiveTest(){
-        clickOnLoginLink();
-        fillregisterloginform(new User().setMail("ol_n@gmail.com").setPassword("Ol_111111!"));
-        clickOnRegistrationButton();
-        Assert.assertTrue(isSingOutButtonPresent());
+        app.getUser().clickOnLoginLink();
+        app.getUser().fillregisterloginform(new User().setMail("ol_n@gmail.com").setPassword("Ol_111111!"));
+        app.getUser().clickOnRegistrationButton();
+        Assert.assertTrue(app.getUser().isSingOutButtonPresent());
     }
 
     public boolean isSingOutButtonPresent() {
-        return isElementPresent(By.xpath("//button[.='Sign Out']"));
+        return app.getUser().isElementPresent(By.xpath("//button[.='Sign Out']"));
     }
 
 
     @Test
     public void existedUserRegistrationNegativeTest(){
-        clickOnLoginLink();
-        fillregisterloginform(new User().setMail("ol_n@gmail.com").setPassword("Ol_111111!"));
-        clickOnRegistrationButton();
-        Assert.assertTrue(isAlertDisplayed());
+        app.getUser().clickOnLoginLink();
+        app.getUser().fillregisterloginform(new User().setMail("ol_n@gmail.com").setPassword("Ol_111111!"));
+        app.getUser().clickOnRegistrationButton();
+        softAssert.assertTrue(app.getUser().isAlertDisplayed());
+        softAssert.assertTrue(app.getUser().isErrorMessagePresent());
+        softAssert.assertAll();
     }
 
 }
