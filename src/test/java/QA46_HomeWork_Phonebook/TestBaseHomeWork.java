@@ -31,12 +31,35 @@ public class TestBaseHomeWork {
     }
 
     public void type(By locator, String text) {
-        click(locator);
-        driver.findElement(locator).clear();
-        driver.findElement(locator).sendKeys(text);
+        if (text!=null) {
+            click(locator);
+            driver.findElement(locator).clear();
+            driver.findElement(locator).sendKeys(text);
+        }
     }
 
     public void click(By locator) {
         driver.findElement(locator).click();
+    }
+
+    public void clickOnRegistrationButton() {
+        click(By.name("registration"));
+    }
+
+    public void clickOnLoginLink() {
+        click(By.cssSelector("[href='/login']"));
+    }
+
+    public void fillRegisterLoginForm(UserHomeWork userHomeWork) {
+        type(By.name("email"), userHomeWork.getMail());
+        type(By.name("password"), userHomeWork.getPassword());
+    }
+
+    public boolean isSignOutButtonPresent() {
+        return isElementPresent(By.xpath("//button[.='Sign Out']"));
+    }
+
+    public void clickOnLoginButton() {
+        click(By.name("login"));
     }
 }
