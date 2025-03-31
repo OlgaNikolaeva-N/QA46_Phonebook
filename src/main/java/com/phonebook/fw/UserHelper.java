@@ -33,4 +33,11 @@ public class UserHelper extends BaseHelper{
         return isElementPresent(By.xpath("//button[.='Sign Out']"));
     }
 
+    public boolean isLoginLinkPresent() {
+        return isElementPresent(By.cssSelector("[href='/login']"));
+    }
+
+    public void clickOnSignOutButton() {
+        click(By.xpath("//button[.='Sign Out']"));
+    }
 }
