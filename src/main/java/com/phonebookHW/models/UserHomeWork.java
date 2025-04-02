@@ -1,4 +1,4 @@
-package QA46_HomeWork_Phonebook;
+package com.phonebookHW.models;
 
 
 public class UserHomeWork {

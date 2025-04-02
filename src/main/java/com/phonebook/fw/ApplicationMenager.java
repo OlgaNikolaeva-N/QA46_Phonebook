@@ -15,6 +15,7 @@ public class ApplicationMenager {
     HomePageHelper home;
 
     public ApplicationMenager(String browser) {
+
         this.browser = browser;
     }
 
