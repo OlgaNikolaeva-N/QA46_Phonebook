@@ -1,6 +1,5 @@
 package com.phonebookHW.fw;
 
-import com.phonebook.models.Contact;
 import com.phonebookHW.models.ContactHomeWork;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -8,26 +7,25 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-public class ContactHelperHW extends BaseHelperHW{
-    public ContactHelperHW(WebDriver driver) {
-
+public class ContactHelperHomeWork extends BaseHelperHomeWork{
+    public ContactHelperHomeWork(WebDriver driver) {
         super(driver);
     }
+
     public void clickOnSaveButton() {
         click(By.cssSelector(".add_form__2rsm2 button"));
     }
 
-    public void fillContactForm(ContactHomeWork contact) {
-        type(By.cssSelector("input:nth-child(1)"), contact.getName());
-        type(By.cssSelector("input:nth-child(2)"), contact.getLastName());
-        type(By.cssSelector("input:nth-child(3)"), contact.getPhone());
-        type(By.cssSelector("input:nth-child(4)"), contact.getEmail());
-        type(By.cssSelector("input:nth-child(5)"), contact.getAddress());
-        type(By.cssSelector("input:nth-child(6)"), contact.getDescription());
+    public void fillContactForm(ContactHomeWork contactHomeWork) {
+        type(By.cssSelector("input:nth-child(1)"), contactHomeWork.getName());
+        type(By.cssSelector("input:nth-child(2)"), contactHomeWork.getLastName());
+        type(By.cssSelector("input:nth-child(3)"), contactHomeWork.getPhone());
+        type(By.cssSelector("input:nth-child(4)"), contactHomeWork.getEmail());
+        type(By.cssSelector("input:nth-child(5)"), contactHomeWork.getAddress());
+        type(By.cssSelector("input:nth-child(6)"), contactHomeWork.getDescription());
     }
 
     public void clickOnAddLink() {
-
         click(By.cssSelector("[href='/add']"));
     }
 
@@ -38,8 +36,8 @@ public class ContactHelperHW extends BaseHelperHW{
                 return true;
             }
         }
-        return false;
-    }
+                return false;
+            }
 
     public void deleteContact() {
         click(By.cssSelector(".contact-item_card__2SOIM"));
@@ -47,11 +45,9 @@ public class ContactHelperHW extends BaseHelperHW{
     }
 
     public int sizeOfContacts() {
-        if(isElementPresent(By.cssSelector(".contact-item_card__2SOIM"))){
+        if (isElementPresent(By.cssSelector(".contact-item_card__2SOIM"))){
             return driver.findElements(By.cssSelector(".contact-item_card__2SOIM")).size();
         }
         return 0;
     }
-
-
 }

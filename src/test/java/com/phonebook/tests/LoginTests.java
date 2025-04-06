@@ -26,8 +26,10 @@ public class LoginTests extends TestBase{
     public void loginNegativeWithoutEmailTests(){
         app.getUser().clickOnLoginLink();
         app.getUser().fillregisterloginform(new User().setPassword("Ol_111111!"));
+        //app.getUser().pause(10000);
         app.getUser().clickOnLoginButton();
         Assert.assertTrue(app.getUser().isAlertDisplayed());
+
 
     }
 
