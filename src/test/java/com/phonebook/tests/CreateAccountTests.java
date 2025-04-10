@@ -1,5 +1,6 @@
 package com.phonebook.tests;
 
+import com.phonebook.data.UserData;
 import com.phonebook.models.User;
 import org.openqa.selenium.By;
 import org.testng.Assert;
@@ -20,7 +21,7 @@ public class CreateAccountTests extends TestBase {
     @Test(enabled = false)
     public void newUserRegistrationPositiveTest(){
         app.getUser().clickOnLoginLink();
-        app.getUser().fillregisterloginform(new User().setMail("ol_n@gmail.com").setPassword("Ol_111111!"));
+        app.getUser().fillregisterloginform(new User().setMail(UserData.EMAIL).setPassword(UserData.PASSWORD));
         app.getUser().clickOnRegistrationButton();
         Assert.assertTrue(app.getUser().isSingOutButtonPresent());
     }
@@ -33,7 +34,7 @@ public class CreateAccountTests extends TestBase {
     @Test
     public void existedUserRegistrationNegativeTest(){
         app.getUser().clickOnLoginLink();
-        app.getUser().fillregisterloginform(new User().setMail("ol_n@gmail.com").setPassword("Ol_111111!"));
+        app.getUser().fillregisterloginform(new User().setMail(UserData.EMAIL).setPassword(UserData.PASSWORD));
         app.getUser().clickOnRegistrationButton();
         softAssert.assertTrue(app.getUser().isAlertDisplayed());
         softAssert.assertTrue(app.getUser().isErrorMessagePresent());

@@ -1,5 +1,6 @@
 package com.phonebook.tests;
 
+import com.phonebook.data.UserData;
 import com.phonebook.models.User;
 import org.openqa.selenium.By;
 import org.testng.Assert;
@@ -17,7 +18,7 @@ public class LoginTests extends TestBase{
     @Test(priority = 1)
     public void loginPositiveTests(){
         app.getUser().clickOnLoginLink();
-        app.getUser().fillregisterloginform(new User().setMail("ol_n@gmail.com").setPassword("Ol_111111!"));
+        app.getUser().fillregisterloginform(new User().setMail(UserData.EMAIL).setPassword(UserData.PASSWORD));
         app.getUser().clickOnLoginButton();
         Assert.assertTrue(app.getUser().isElementPresent(By.xpath("//button[.='Sign Out']")));
 
@@ -25,7 +26,7 @@ public class LoginTests extends TestBase{
     @Test(priority = 2)
     public void loginNegativeWithoutEmailTests(){
         app.getUser().clickOnLoginLink();
-        app.getUser().fillregisterloginform(new User().setPassword("Ol_111111!"));
+        app.getUser().fillregisterloginform(new User().setPassword(UserData.PASSWORD));
         //app.getUser().pause(10000);
         app.getUser().clickOnLoginButton();
         Assert.assertTrue(app.getUser().isAlertDisplayed());
