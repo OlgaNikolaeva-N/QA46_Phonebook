@@ -1,0 +1,20 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="SmokyHW" verbose="1">
+    <test name="SmokyHW1">
+        <classes>
+            <class name="QA46_HomeWork_Phonebook.HomePageTestsHomeWork"/>
+            <class name="QA46_HomeWork_Phonebook.LoginTestsHomeWork">
+                <methods>
+                    <exclude name=".*Negative.*"></exclude>
+                </methods>
+            </class>
+            <class name="QA46_HomeWork_Phonebook.AddContactTestsHomeWork">
+                <methods>
+                    <exclude name=".*From.*"></exclude>
+                </methods>
+            </class>
+            <class name="QA46_HomeWork_Phonebook.DeleteContactTestsHomeWork"/>
+        </classes>
+    </test>
+</suite>

@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="QuickHW" verbose="1">
+    <test name="QuickHW1">
+        <classes>
+            <class name="QA46_HomeWork_Phonebook.HomePageTestsHomeWork"/>
+        </classes>
+    </test>
+</suite>

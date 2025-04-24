@@ -1,5 +1,7 @@
 package QA46_HomeWork_Phonebook;
 
+import com.phonebookHW.data.ContactDataHW;
+import com.phonebookHW.data.UserDataHW;
 import com.phonebookHW.models.ContactHomeWork;
 import com.phonebookHW.models.UserHomeWork;
 import org.testng.Assert;
@@ -13,11 +15,12 @@ public class DeleteContactTestsHomeWork extends TestBaseHomeWork{
             appHW.getUser().clickOnSignOutButton();
         }
         appHW.getUser().clickOnLoginLink();
-        appHW.getUser().fillRegisterLoginForm(new UserHomeWork().setMail("ol_n1@gmail.com").setPassword("Ol_111111!"));
+        appHW.getUser().fillRegisterLoginForm(new UserHomeWork().setMail(UserDataHW.EMAIL).setPassword(UserDataHW.PASSWORD));
         appHW.getUser().clickOnLoginButton();
         appHW.getContact().clickOnAddLink();
-        appHW.getContact().fillContactForm(new ContactHomeWork().setName("Lera").setLastName("Bekker").setPhone("0123456789").
-                setEmail("lera@gmail.com").setAddress("Haifa").setDescription("QA"));
+        appHW.getContact().fillContactForm(new ContactHomeWork().setName(ContactDataHW.NAME).setLastName(ContactDataHW.LASTNAME).
+                setPhone(ContactDataHW.PHONE).setEmail(ContactDataHW.EMAIL).
+                setAddress(ContactDataHW.ADDRESS).setDescription(ContactDataHW.DESCRIPTION));
         appHW.getContact().clickOnSaveButton();
     }
     @Test

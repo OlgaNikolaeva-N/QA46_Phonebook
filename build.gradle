@@ -42,9 +42,23 @@ task qa1(type:Test){
         }
     }
     task qahw(type:Test){
-        useTestNG()
+        useTestNG(){
+            def suitehw1 = project.hasProperty("suitehw1")
+            def suitehw2 = project.hasProperty("suitehw2")
+            def suitehw3 = project.hasProperty("suitehw3")
+           if(suitehw1){
+               suiteshw 'src/test/resources/testnghw.xml'
+           } else if(suitehw2){
+               suites 'src/test/resources/smokyhw.xml'
+           }else if(suitehw3){
+               suites 'src/test/resources/negative.xml'
+           }
+
+        }
         if(project.hasProperty('browser')){
             systemProperty'browser',"${browser}"
         }
     }
+
+
 }

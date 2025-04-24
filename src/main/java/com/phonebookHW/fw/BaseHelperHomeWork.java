@@ -1,11 +1,12 @@
 package com.phonebookHW.fw;
 
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import com.google.common.io.Files;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 
 public class BaseHelperHomeWork{
@@ -49,5 +50,16 @@ public class BaseHelperHomeWork{
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+    }
+    public String takeScreenshotHW(){
+        File tmphw = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        File screensothw = new File("screensotshw/screenhw-" + System.currentTimeMillis() + ".png");
+
+        try {
+            Files.copy(tmphw,screensothw);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return screensothw.getAbsolutePath();
     }
 }
