@@ -9,6 +9,7 @@ public class ContactHomeWork {
     private String description;
 
     public String getName() {
+
         return name;
     }
 
@@ -18,6 +19,7 @@ public class ContactHomeWork {
     }
 
     public String getLastName() {
+
         return lastName;
     }
 
@@ -27,6 +29,7 @@ public class ContactHomeWork {
     }
 
     public String getPhone() {
+
         return phone;
     }
 
@@ -36,6 +39,7 @@ public class ContactHomeWork {
     }
 
     public String getEmail() {
+
         return email;
     }
 
@@ -60,5 +64,13 @@ public class ContactHomeWork {
     public ContactHomeWork setDescription(String description) {
         this.description = description;
         return this;
+    }
+
+    @Override
+    public String toString() {
+        return "ContactHomeWork{" +
+                "name='" + name + '\'' +
+                ", phone='" + phone + '\'' +
+                '}';
     }
 }

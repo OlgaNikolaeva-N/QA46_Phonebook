@@ -9,6 +9,7 @@ import java.util.List;
 
 public class ContactHelperHomeWork extends BaseHelperHomeWork{
     public ContactHelperHomeWork(WebDriver driver) {
+
         super(driver);
     }
 
@@ -26,6 +27,7 @@ public class ContactHelperHomeWork extends BaseHelperHomeWork{
     }
 
     public void clickOnAddLink() {
+
         click(By.cssSelector("[href='/add']"));
     }
 

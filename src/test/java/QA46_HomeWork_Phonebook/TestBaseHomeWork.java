@@ -11,6 +11,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
 import java.lang.reflect.Method;
+import java.util.Arrays;
 
 public class TestBaseHomeWork {
 
@@ -20,13 +21,13 @@ public class TestBaseHomeWork {
     protected static ApplicationMenagerHomeWork appHW = new ApplicationMenagerHomeWork
             (System.getProperty("browser", Browser.CHROME.browserName()));
 
-    @AfterSuite(enabled = false)
+    @BeforeSuite(enabled = false)
     //@BeforeMethod
     public void setUp(){
         appHW.init();
     }
 
-    @BeforeSuite
+    @AfterSuite
     //@AfterMethod(enabled = false)
     public void tearDown(){
 
@@ -34,8 +35,9 @@ public class TestBaseHomeWork {
 
     }
     @BeforeMethod
-    public void startTest(Method method){
-        logger.info("Start test"+ method.getName());
+    public void startTest(Method method,Object[]p){
+
+        logger.info("Start test"+ method.getName()+ Arrays.asList(p));
     }
 
     @AfterMethod

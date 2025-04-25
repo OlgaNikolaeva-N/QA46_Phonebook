@@ -8,8 +8,8 @@ public class HomePageTestsHomeWork extends TestBaseHomeWork{
 
     @BeforeMethod
     public void ensurePrecondition(){
-        if(!appHW.getUser().isLoginLinkPresent()){
-            appHW.getUser().clickOnSignOutButton();
+        if(!appHW.getHome().isHomeComponentPresent()){
+            appHW.getHome().clickOnHomeLink();
         }
     }
 

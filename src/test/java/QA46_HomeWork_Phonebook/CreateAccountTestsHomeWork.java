@@ -3,6 +3,7 @@ package QA46_HomeWork_Phonebook;
 
 import com.phonebookHW.data.UserDataHW;
 import com.phonebookHW.models.UserHomeWork;
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -25,6 +26,10 @@ public class CreateAccountTestsHomeWork extends TestBaseHomeWork{
         appHW.getUser().clickOnRegistrationButton();
         //Assert.assertTrue(isAlertDisplayed());
         Assert.assertTrue(appHW.getUser().isSignOutButtonPresent());
+    }
+
+    public boolean isSingOutButtonPresent() {
+        return appHW.getUser().isElementPresent(By.xpath("//button[.='Sign Out']"));
     }
 
 }

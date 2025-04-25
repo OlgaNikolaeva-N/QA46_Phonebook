@@ -13,10 +13,12 @@ public class BaseHelperHomeWork{
     WebDriver driver;
 
     public BaseHelperHomeWork(WebDriver driver) {
+
         this.driver=driver;
     }
 
     public boolean isElementPresent(By locator){
+
         return driver.findElements(locator).size()>0;
     }
 
